@@ -1,0 +1,20 @@
+{
+	"posterOptions": {
+		"host": "smtp.163.com",
+		"port": 465,
+		"secure": true,
+		"auth": {
+			"user": "",
+			"pass": ""
+		}
+	},
+	"recipients": [],
+	"databaseOptions": {
+		"host": "127.0.0.1",
+		"port": 3306,
+		"user": "root",
+		"password": "root",
+		"database": "ufwd"
+	},
+	"checkPeriod": 7
+}
