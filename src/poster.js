@@ -9,10 +9,10 @@ module.exports = async function sender(options) {
 		const sendResult = await transporter.sendMail(options);
 
 		if (sendResult) {
-			console.log(`[${new Date}] Send email successfully!`);
+			console.log(`[${new Date()}] Send email successfully!`);
 		}
 
 	} catch (error) {
-		console.log(`[${new Date}] Send email failed! Error Information: ${error.message}`);
+		console.log(`[${new Date()}] Send email failed! Error Information: ${error.message}`);
 	}
 }

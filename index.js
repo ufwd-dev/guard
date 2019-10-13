@@ -2,12 +2,18 @@ const config = require('./config.json');
 const check = require('./src');
 const poster = require('./src/poster');
 
-const checkPeriod = config.checkPeriod || 7;
-const TIMEOUT = checkPeriod * 24 * 60 * 60 * 1000;
+const { checkPeriod } = config;
 
-setInterval(async () => {
+poster({
+	from: config.posterOptions.auth.user,
+	to: config.recipients.join(','),
+	subject: '[UFWD]guard已启动',
+	html: `<h1 style="color: green">ufwd数据库守卫已启动</h1>`
+});
+
+async function callback() {
 	const result = await check();
-
+	
 	if (!result) {
 		poster({
 			from: config.posterOptions.auth.user,
@@ -16,4 +22,7 @@ setInterval(async () => {
 			html: `<h1 style="color: red">ufwd数据库出现问题，请尽快检查！</h1>`
 		})
 	}
-}, TIMEOUT);
+}
+
+callback();
+setInterval(callback, checkPeriod);

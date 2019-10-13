@@ -7,7 +7,7 @@ table_schema FROM information_schema.TABLES
 WHERE table_schema = '${config.databaseOptions.database}' GROUP BY table_schema;`
 const tableMap = {
 	account: {
-		name: 'ACCOUNTs',
+		name: 'ACCOUNT',
 		size: 0
 	},
 	accountProfile: {
@@ -44,9 +44,10 @@ module.exports = async function check() {
 			return false;
 		}
 
+		console.log(`[${new Date()}] Check Pass!`)
 		return true;
 	} catch (error) {
-		console.log(`[${new Date}] Check failed! Error Information: ${error.message}`);
+		console.log(`[${new Date()}] Check failed! Error Information: ${error.message}`);
 
 		return false;
 	}
