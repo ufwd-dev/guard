@@ -9,9 +9,10 @@
 | host | String | The hostname of the sender you are connecting to. |
 | port | Number | The port number to connect to. |
 | secure | Boolean |  If true the connection will use TLS when connecting to server. If false then TLS is used if server supports the STARTTLS extension. |
-| auth | Object | The authentication data. |
+| auth | Object | The authentication data. The auth.user is your email account. The auth.pass is SMTP authorization code. |
 
-[reference](https://github.com/nodemailer/nodemailer-wellknown/blob/master/services.json)
+[reference](https://github.com/nodemailer/nodemailer-wellknown/blob/master/services.json)  
+[Notice] Your email account require open SMTP service.
 
 
 2. recipients
